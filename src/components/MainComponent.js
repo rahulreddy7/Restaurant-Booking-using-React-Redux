@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Switch,Redirect,Route} from 'react-router-dom';
 //import logo from './logo.svg';
 import Menu from './MenuComponent';
 import {DISHES} from '../shared/dishes';
@@ -7,17 +8,18 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
+import About from './AboutComponent';
 import { COMMENTS } from '../shared/comments';
 import { PROMOTIONS } from '../shared/promotions';
 import { LEADERS } from '../shared/leaders';
-import {Switch,Redirect,Route} from 'react-router-dom';
+
+
 
 class Main extends Component {
   constructor(props){
     super(props);
     this.state={
       dishes:DISHES,
-      selectedDish:null,
       comments: COMMENTS,
       promotions: PROMOTIONS,
       leaders: LEADERS
@@ -41,7 +43,6 @@ class Main extends Component {
           comments={this.state.comments.filter((comment)=>comment.dishId===parseInt(match.params.dishID),10)}
           />
       );
-
     }
     return (
       <div className="App">
@@ -51,6 +52,7 @@ class Main extends Component {
         <Route exact path='/menu' component={()=><Menu dishes={this.state.dishes} />}/>
         <Route path='/menu/:dishID' component={DishWithId}/>
         <Route exact path='/contactus' component={Contact} />
+        <Route path='/aboutus' component={()=><About leaders={this.state.leaders}/>} />
         <Redirect to='/home' />
          </Switch>
         {/* <Menu dishes={this.state.dishes} onClick={(dishID)=>(this.onDishSelect(dishID))} />
