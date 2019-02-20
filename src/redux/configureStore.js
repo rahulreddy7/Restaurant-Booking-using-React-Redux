@@ -1,11 +1,11 @@
 import {createStore, combineReducers} from 'redux';
-import {DISHES} from '../shared/dishes';
-import { COMMENTS } from '../shared/comments';
-import { LEADERS } from '../shared/leaders';
-import { PROMOTIONS } from '../shared/promotions';
+import { Dishes } from './dishes';
+import { Comments } from './comments';
+import { Promotions } from './promotions';
+import { Leaders } from './leaders';
 
-export const ConfigureStore=()=>{
-    const store=createStore(
+export const ConfigureStore = () => {
+    const store = createStore(
         combineReducers({
             dishes: Dishes,
             comments: Comments,
@@ -13,6 +13,7 @@ export const ConfigureStore=()=>{
             leaders: Leaders
         })
     );
+
     return store;
 }
 
