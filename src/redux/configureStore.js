@@ -5,7 +5,7 @@ import { Promotions } from './promotions';
 import { Leaders } from './leaders';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import {InitialFeebback} from '../redux/forms'
+import {InitialFeebback,InitialFeedback} from './forms'
 import { createForms } from 'react-redux-form';
 
 export const ConfigureStore = () => {
@@ -15,6 +15,7 @@ export const ConfigureStore = () => {
             comments: Comments,
             promotions: Promotions,
             leaders: Leaders,
+            feedback:InitialFeedback,
             ...createForms({
                 feedback:InitialFeebback
             })
